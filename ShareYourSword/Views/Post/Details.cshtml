@@ -1,0 +1,113 @@
+﻿@model ShareYourSword.Models.Post
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative|Roboto+Slab&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto Slab', serif;
+            background-image: url('/images/0.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #f4f1de;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: #ffe5d9;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 2px 2px 10px #000;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        dl {
+            color: #f4f1de;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            font-family: 'Cinzel', serif;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #ffe5d9;
+            color: #4b3621;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-right: 10px;
+        }
+
+            .btn:hover {
+                background-color: #4b3621;
+                color: #ffe5d9;
+            }
+
+        .actions {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body style="margin-bottom:40px;">
+    <h1>Post Details</h1>
+
+    <div class="container">
+        <img src="@Model.Image" alt="@Model.Name" />
+
+        <dl>
+            <dt>Name</dt>
+            <dd>@Model.Name</dd>
+
+            <dt>Mail</dt>
+            <dd>@Model.Mail</dd>
+
+            <dt>Comment</dt>
+            <dd>@Model.Comment</dd>
+
+            <dt>Date</dt>
+            <dd>@Model.Date.ToShortDateString()</dd>
+        </dl>
+
+        <div class="actions">
+            <a class="btn" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+            <a class="btn" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</body>
+
+</html>
+

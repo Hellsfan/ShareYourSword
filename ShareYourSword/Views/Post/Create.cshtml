@@ -1,0 +1,127 @@
+﻿@model ShareYourSword.Models.Post
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative|Roboto+Slab&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto Slab', serif;
+            background-image: url('/images/0.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #f4f1de;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: #ffe5d9;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #ffe5d9;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #4b3621;
+        }
+
+        textarea.form-control {
+            height: 100px;
+            resize: none;
+        }
+
+        .btn {
+            font-family: 'Cinzel', serif;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #ffe5d9;
+            color: #4b3621;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+            .btn:hover {
+                background-color: #4b3621;
+                color: #ffe5d9;
+            }
+    </style>
+</head>
+
+<body>
+    <h1>Create Post</h1>
+
+    <div class="container">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Image URL</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Mail" class="control-label">Email</label>
+                <input asp-for="Mail" class="form-control" />
+                <span asp-validation-for="Mail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Comment" class="control-label">Comment</label>
+                <textarea asp-for="Comment" class="form-control"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button class="btn" type="submit">Create</button>
+            </div>
+        </form>
+        <div>
+            <a class="btn" asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
