@@ -108,10 +108,12 @@ namespace ShareYourSword.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [AllowAnonymous]
         public IActionResult Like(int id)
         {
             var post = _postRepository.Get(id);
             _postRepository.Like(post.Id);
+            Thread.Sleep(1000);
             return RedirectToAction(nameof(Index));
         }
 
